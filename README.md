@@ -1,4 +1,3 @@
-# eliza
 Project Eliza
 =============
 
@@ -6,7 +5,6 @@ Eliza is the Project Taking Kira's Place as the management controller for my int
 
 Eliza's Purpse is to manage machines, updates, containers and hypervisors aswell as monitor services.
 
-============
 
 TODO:
 
@@ -19,7 +17,6 @@ TODO:
 
 Todo's are in no Particular order.
 
-===========
 
 Code i have Borrowed:
 --------------------
@@ -28,7 +25,6 @@ GoBot: https://github.com/darthlukan/gobot
 
 Thanks to the Developers of all Borrowed Code.
 
-===========
 
 Contribute:
 -----------
