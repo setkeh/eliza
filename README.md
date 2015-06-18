@@ -7,6 +7,7 @@ Eliza's Purpse is to manage machines, updates, containers and hypervisors aswell
 
 
 TODO:
+----
 
   1. Add Darthlukan's Gobot for IRC
   2. Add Docker intergration.
