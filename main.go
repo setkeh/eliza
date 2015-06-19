@@ -11,7 +11,7 @@ import (
 )
 
 func request(conf string) (objx.Map, error) {
-	file, err := ioutil.ReadFile("./config.json")
+	file, err := ioutil.ReadFile(conf)
 
 	if err != nil {
 		fmt.Println("Couldn't read config file, dying...")
@@ -43,7 +43,7 @@ func request(conf string) (objx.Map, error) {
 //}
 
 func main() {
-	var conf string
+	var conf = "./config.json"
 	rand.Seed(64)
 
 	config, err := request(conf)
