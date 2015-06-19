@@ -1,0 +1,40 @@
+[
+  { 
+    "confirc": [{
+      "nick": "ProjectEliza",
+      "trigger": "!",
+      "realname": "TheSetkehProject Automation Bot",
+      "server": "irc.freenode.net:7000", 
+      "channels": [{
+  	      "ldc": "#linuxdistrocommunity",
+	      "tskp": "#thesetkehproject"
+      }],
+      "autoReconnect": "150",
+      "autoRejoin": "true",
+      "floodDelay": "1000",
+      "secure": "true",
+      "debug": "true",
+      "vhost": "null"
+    }]
+  },
+  {
+    "general": [{
+      "machine": "HardKernel Odroid U3",
+      "maintainer": "SETKEH"
+    }]
+  },
+  {
+    "docker": [{
+      "host": "10.0.0.7",
+      "port": "4243"
+    }]
+  },
+  {
+    "temp": [{
+      "temp": "/sys/class/thermal/thermal_zone0/temp",
+      "pwm_duty": "/sys/bus/platform/devices/odroidu2-fan/pwm_duty",
+      "start_temp": "/sys/bus/platform/devices/odroidu2-fan/start_temp",
+      "start_duty": "/sys/bus/platform/devices/odroidu2-fan/start_duty"
+    }]
+  }
+]
