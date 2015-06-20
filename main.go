@@ -7,7 +7,7 @@ import (
 	"github.com/thoj/go-ircevent"
 	"io/ioutil"
 	"math/rand"
-	"os"
+	//"os"
 )
 
 func request(conf string) (objx.Map, error) {
@@ -15,47 +15,50 @@ func request(conf string) (objx.Map, error) {
 
 	if err != nil {
 		fmt.Println("Couldn't read config file, dying...")
-		panic(err)
-		os.Exit(1)
+		//panic(err)
+		//os.Exit(1)
 	}
 
 	data, err := objx.FromJSON(string(file))
+
 	if err != nil {
-		return nil, err
+		fmt.Println(err)
 	}
 
 	return data, nil
 }
 
-//func AddCallbacks(conn *irc.Connection, conf string) {
-//	conn.AddCallback("001", func(e *irc.Event) {
+func AddCallbacks(conn *irc.Connection, conf string) {
+	conn.AddCallback("001", func(e *irc.Event) {
 
-//		config, err := request(conf)
-//if err != nil {
-//	return err
-//}
-//var channels = config.Get(irc[0].channels).Str()
-//fmt.Sprintf(channels)
-//		fmt.Sprintf(config.Get(irc[0].channels).Str())
+		config, err := request(conf)
+		if err != nil {
+			fmt.Println(err)
+		}
+		var channels = config.Get("confirc[0].channels[0]").Str()
 
-// conn.Join(channels)
-//	})
-//}
+		conn.Join(channels)
+	})
+}
 
 func main() {
 	var conf = "./config.json"
 	rand.Seed(64)
 
 	config, err := request(conf)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
 	//fmt.Sprintf(config.Get(confirc[0].channels).Str())
 	conn := irc.IRC(config.Get("confirc[0].nick").Str(), config.Get("confirc[0].realname").Str())
 	err = conn.Connect(config.Get("confirc[0].server").Str())
 
 	if err != nil {
-		fmt.Println("Failed to connect.")
-		panic(err)
+		fmt.Println("Failed to connect.", err)
 	}
 
-	//AddCallbacks(conn, conf)
+	AddCallbacks(conn, conf)
 	conn.Loop()
 }
