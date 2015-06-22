@@ -30,7 +30,7 @@
     }]
   },
   {
-    "temp": [{
+    "odt": [{
       "temp": "/sys/class/thermal/thermal_zone0/temp",
       "pwm_duty": "/sys/bus/platform/devices/odroidu2-fan/pwm_duty",
       "start_temp": "/sys/bus/platform/devices/odroidu2-fan/start_temp",

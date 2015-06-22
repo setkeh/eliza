@@ -31,11 +31,11 @@ type Config struct {
 		Machine    string
 		Maintainer string
 	}
-	docker struct {
+	Docker struct {
 		Host string
 		Port string
 	}
-	temp struct {
+	Odt struct {
 		Temp       string
 		Pwm_duty   string
 		Start_temp string
