@@ -53,16 +53,17 @@ type Config struct {
 }*/
 
 func main() {
-	var conf = "./config.json"
-	config := &Config{}
+
 	rand.Seed(64)
 
-	file, err := ioutil.ReadFile(conf)
+	file, err := ioutil.ReadFile("./config.json")
 
 	if err != nil {
 		fmt.Println("Couldn't read config file, dying...")
 		panic(err)
 	}
+
+	config := &Config{}
 
 	json.Unmarshal([]byte(file), &config)
 
