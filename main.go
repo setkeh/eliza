@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	//"github.com/stretchr/objx"
 	//"github.com/thoj/go-ircevent"
 	"io/ioutil"
 	"math/rand"
@@ -63,15 +62,11 @@ func main() {
 	if err != nil {
 		fmt.Println("Couldn't read config file, dying...")
 		panic(err)
-		//os.Exit(1)
 	}
 
 	json.Unmarshal([]byte(file), &config)
-	if err != nil {
-		panic(err)
-	}
 
-	fmt.Println(config.Confirc.Nick)
+	fmt.Println(config)
 	//fmt.Sprintf(config.Get(confirc[0].channels).Str())
 	//	conn := irc.IRC(config.Get("confirc[0].nick").Str(), config.Get("confirc[0].realname").Str())
 	//	err = conn.Connect(config.Get("confirc[0].server").Str())
