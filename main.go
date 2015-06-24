@@ -64,7 +64,6 @@ func main() {
 	}
 
 	config := &Config{}
-
 	json.Unmarshal([]byte(file), &config)
 
 	fmt.Println(config)

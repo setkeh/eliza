@@ -1,6 +1,8 @@
 Project Eliza
 =============
 
+[![Build Status](https://drone.io/github.com/thesetkehproject/eliza/status.png)](https://drone.io/github.com/thesetkehproject/eliza/latest)
+
 Eliza is the Project Taking Kira's Place as the management controller for my internal network and Development enviroment.
 
 Eliza's Purpse is to manage machines, updates, containers and hypervisors aswell as monitor services.
