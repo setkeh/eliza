@@ -35,9 +35,9 @@ Now that its working ill be stripping the GoBot code back out of Eliza after Dar
 
 This will Result in the Following Changes:
 
-  [GoBot Issue #17:](https://github.com/darthlukan/gobot/issues/17)
-  [GoBot Issue #18:](https://github.com/darthlukan/gobot/issues/18)
-  [GoBot Issue #19:](https://github.com/darthlukan/gobot/issues/19)
+  * [GoBot Issue #17:](https://github.com/darthlukan/gobot/issues/17)
+  * [GoBot Issue #18:](https://github.com/darthlukan/gobot/issues/18)
+  * [GoBot Issue #19:](https://github.com/darthlukan/gobot/issues/19)
 
 This will abstract the management of notification methods away from Eliza itself thus making code more manageable and removing a number of failure points.
 It will Also allow for adding in support for other protocols i.e Tox or Telegram even Jabber without bulking the codebase too significantly.
@@ -58,7 +58,7 @@ There are some things that wont be able to be completed because of limitations i
 
   * [Ubiquity Managed Gigabit Switch](http://www.scorptec.com.au/product/Networking_-_Wired/Gigabit_Switches/58318-US-24-500W)
 
-This list is likely to grow as the Project get more and more complex.
+This list is likely to grow as the Project gets more and more complex.
 
 I have a thing for Ubiquity hardware at the moment but i will likely try to integrate Cisco IOS and Arista hardware if i can get my hands on some hardware.
 
