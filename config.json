@@ -1,40 +1,15 @@
-[
-  { 
-    "confirc": [{
-      "nick": "ProjectEliza",
-      "trigger": "!",
-      "realname": "TheSetkehProject Automation Bot",
-      "server": "irc.freenode.net:7000", 
-      "channels": [{
-  	      "ldc": "#linuxdistrocommunity",
-	      "tskp": "#thesetkehproject"
-      }],
-      "autoReconnect": "150",
-      "autoRejoin": "true",
-      "floodDelay": "1000",
-      "secure": "true",
-      "debug": "true",
-      "vhost": "null"
-    }]
-  },
-  {
-    "general": [{
-      "machine": "HardKernel Odroid U3",
-      "maintainer": "SETKEH"
-    }]
-  },
-  {
-    "docker": [{
-      "host": "10.0.0.7",
-      "port": "4243"
-    }]
-  },
-  {
-    "odt": [{
-      "temp": "/sys/class/thermal/thermal_zone0/temp",
-      "pwm_duty": "/sys/bus/platform/devices/odroidu2-fan/pwm_duty",
-      "start_temp": "/sys/bus/platform/devices/odroidu2-fan/start_temp",
-      "start_duty": "/sys/bus/platform/devices/odroidu2-fan/start_duty"
-    }]
-  }
-]
+{
+  "nick": "ProjectEliza",
+  "trigger": "!",
+  "realname": "TheSetkehProject Automation Bot",
+  "server": "irc.freenode.net:6667", 
+  "channel": "#thesetkehproject",
+  "machine": "HardKernel Odroid U3",
+  "maintainer": "SETKEH",
+  "host": "10.0.0.7",
+  "port": "4243",
+  "temp": "/sys/class/thermal/thermal_zone0/temp",
+  "pwm_duty": "/sys/bus/platform/devices/odroidu2-fan/pwm_duty",
+  "start_temp": "/sys/bus/platform/devices/odroidu2-fan/start_temp",
+  "start_duty": "/sys/bus/platform/devices/odroidu2-fan/start_duty"
+}

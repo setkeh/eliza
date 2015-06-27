@@ -3,54 +3,42 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	//"github.com/thoj/go-ircevent"
+	"github.com/thoj/go-ircevent"
 	"io/ioutil"
 	"math/rand"
 	//"os"
 )
 
 type Config struct {
-	Confirc struct {
-		Nick     string
-		Trigger  string
-		Realname string
-		Server   string
-		Channels struct {
-			Ldc  string
-			Tskp string
-		}
-		AutoReconnect string
-		AutoRejoin    string
-		FloodDelay    string
-		Secure        string
-		Debug         string
-		Vhost         string
-	}
-	General struct {
-		Machine    string
-		Maintainer string
-	}
-	Docker struct {
-		Host string
-		Port string
-	}
-	Odt struct {
-		Temp       string
-		Pwm_duty   string
-		Start_temp string
-		Start_duty string
-	}
+	Nick       string
+	Trigger    string
+	Realname   string
+	Server     string
+	Channel    string
+	Machine    string
+	Maintainer string
+	Host       string
+	Port       string
+	Temp       string
+	Pwm_duty   string
+	Start_temp string
+	Start_duty string
 }
 
-/*func AddCallbacks(conn *irc.Connection, config *Config) {
+func AddCallbacks(conn *irc.Connection, config *Config) {
 	conn.AddCallback("001", func(e *irc.Event) {
 
-		fmt.Println(config)
-		//		var channels = config.Channels
+		pass, err := ioutil.ReadFile("./services.password")
 
-		//conn.Join(channels)
+		if err != nil {
+			fmt.Println("Could not read Services password")
+		}
+
+		var channel = config.Channel
+		conn.Join(channel)
+		conn.Privmsg("nickserv", "identify "+string(pass))
 	})
-}*/
+}
 
 func main() {
 
@@ -65,17 +53,21 @@ func main() {
 
 	config := &Config{}
 
-	json.Unmarshal([]byte(file), &config)
+	err = json.Unmarshal([]byte(file), config)
 
-	fmt.Println(config)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(config.Nick)
 	//fmt.Sprintf(config.Get(confirc[0].channels).Str())
-	//	conn := irc.IRC(config.Get("confirc[0].nick").Str(), config.Get("confirc[0].realname").Str())
-	//	err = conn.Connect(config.Get("confirc[0].server").Str())
+	conn := irc.IRC(config.Nick, config.Realname)
+	err = conn.Connect(config.Server)
 
-	//	if err != nil {
-	//		fmt.Println("Failed to connect.", err)
-	//	}
+	if err != nil {
+		fmt.Println("Failed to connect.", err)
+	}
 
-	//AddCallbacks( /*conn, */ config)
-	//conn.Loop()
+	AddCallbacks(conn, config)
+	conn.Loop()
 }
