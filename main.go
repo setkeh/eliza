@@ -1,73 +1,28 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
-	"github.com/thoj/go-ircevent"
-	"io/ioutil"
-	"math/rand"
-	//"os"
+	"github.com/gin-gonic/gin"
 )
-
-type Config struct {
-	Nick       string
-	Trigger    string
-	Realname   string
-	Server     string
-	Channel    string
-	Machine    string
-	Maintainer string
-	Host       string
-	Port       string
-	Temp       string
-	Pwm_duty   string
-	Start_temp string
-	Start_duty string
-}
-
-func AddCallbacks(conn *irc.Connection, config *Config) {
-	conn.AddCallback("001", func(e *irc.Event) {
-
-		pass, err := ioutil.ReadFile("./services.password")
-
-		if err != nil {
-			fmt.Println("Could not read Services password")
-		}
-
-		var channel = config.Channel
-		conn.Join(channel)
-		conn.Privmsg("nickserv", "identify "+string(pass))
-	})
-}
 
 func main() {
 
-	rand.Seed(64)
+	// REST Server
+	server := gin.Default()
 
-	file, err := ioutil.ReadFile("./config.json")
+	// Routes
 
-	if err != nil {
-		fmt.Println("Couldn't read config file, dying...")
-		panic(err)
-	}
+	// #JobID
+	server.GET("/jobID/:id", JobidHandler)
+	server.POST("/jobID/:id", JobidHandler)
 
-	config := &Config{}
+	// Job Type
+	server.GET("/JobType", JobTypeHandler)
+	server.POST("/JobType", JobTypeHandler)
 
-	err = json.Unmarshal([]byte(file), config)
+	// Job Status
+	server.GET("/JobStatus", JobStatHandler)
+	server.POST("/JobStatus", JobStatHandler)
 
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	fmt.Println(config.Nick)
-	//fmt.Sprintf(config.Get(confirc[0].channels).Str())
-	conn := irc.IRC(config.Nick, config.Realname)
-	err = conn.Connect(config.Server)
-
-	if err != nil {
-		fmt.Println("Failed to connect.", err)
-	}
-
-	AddCallbacks(conn, config)
-	conn.Loop()
+	// Start Server
+	server.Run(":80")
 }
