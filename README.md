@@ -56,7 +56,7 @@ Eliza's Management tasks are going to be very broad here is the short list:
 
 There are some things that wont be able to be completed because of limitations in my current network here is a list of things i will need to fully complete the project.
 
-  * [Ubiquity Managed Gigabit Switch](http://www.scorptec.com.au/product/Networking_-_Wired/Gigabit_Switches/58318-US-24-500W)
+  * [Ubiquity Managed Gigabit Switch](http://www.scorptec.com.au/product/Networking_-_Wired/Gigabit_Switches/55583-ES-24-250W)
 
 This list is likely to grow as the Project gets more and more complex.
 
